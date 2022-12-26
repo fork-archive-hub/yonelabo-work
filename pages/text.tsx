@@ -43,7 +43,10 @@ const useSharedString = (): SharedString => {
 
 	// Get the Fluid Data data on app startup and store in the state
 	useEffect(() => {
-		getFluidData().then((data) => setSharedString(data));
+		getFluidData().then((data) => {
+			setSharedString(data);
+			console.log("data", data)
+		});
 	}, []);
 
 	return sharedString as SharedString;
