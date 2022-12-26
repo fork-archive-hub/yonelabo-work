@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
-const Line = dynamic(() => import('./components/Line'), { ssr: false })
+const Share = dynamic(() => import('./components/Share'), { ssr: false })
 
 const line: FC = () => {
   return (
-    <Line></Line>
+    <Share></Share>
   )
 }
 
