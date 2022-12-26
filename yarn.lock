@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+"@fluid-experimental/react-inputs@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@fluid-experimental/react-inputs/-/react-inputs-1.3.1.tgz#29b6054cdc5d924ada77dc0ee7723b60b7b67577"
+  integrity sha512-nh00exKPHRnUSaWwpt81y++JrRFmym6WiUt9E+WCUa2AitrUwfg0UYtd3GldEGIylY+kzlBq8v1CPDmIOZKqUg==
+  dependencies:
+    "@fluidframework/cell" "^1.3.1"
+    "@fluidframework/common-definitions" "^0.20.1"
+    "@fluidframework/common-utils" "^0.32.1"
+    "@fluidframework/merge-tree" "^1.3.1"
+    "@fluidframework/sequence" "^1.3.1"
+    react "^16.10.2"
+
 "@fluidframework/aqueduct@^1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@fluidframework/aqueduct/-/aqueduct-1.3.1.tgz#193a909776d73957eaab39909672961ee85ed803"
@@ -23,6 +35,19 @@
     "@fluidframework/synthesize" "^1.3.1"
     "@fluidframework/view-interfaces" "^1.3.1"
     uuid "^8.3.1"
+
+"@fluidframework/cell@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@fluidframework/cell/-/cell-1.3.1.tgz#895e33e147c370b5ff2442f5805d7b7dbc45119d"
+  integrity sha512-U0iORavCeq8MAmR57D+1Jq0RxmA7yGzu57CwpUM/NKwDL2V9hG8W8wH89PxPddDOLiJfnht9KGYakbv8TzTO6A==
+  dependencies:
+    "@fluidframework/common-utils" "^0.32.1"
+    "@fluidframework/core-interfaces" "^1.3.1"
+    "@fluidframework/datastore-definitions" "^1.3.1"
+    "@fluidframework/driver-utils" "^1.3.1"
+    "@fluidframework/protocol-definitions" "^0.1028.2000"
+    "@fluidframework/runtime-definitions" "^1.3.1"
+    "@fluidframework/shared-object-base" "^1.3.1"
 
 "@fluidframework/common-definitions@^0.20.1":
   version "0.20.1"
@@ -884,7 +909,7 @@ lodash@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-loose-envify@^1.1.0:
+loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -938,6 +963,11 @@ node-fetch@2.6.7:
   dependencies:
     whatwg-url "^5.0.0"
 
+object-assign@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+  integrity sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==
+
 object-sizeof@^1.4.0:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/object-sizeof/-/object-sizeof-1.6.3.tgz#6edbbf26825b971fd7a32125a800ed2a9895af95"
@@ -979,6 +1009,15 @@ printj@~1.1.0:
   resolved "https://registry.yarnpkg.com/printj/-/printj-1.1.2.tgz#d90deb2975a8b9f600fb3a1c94e3f4c53c78a222"
   integrity sha512-zA2SmoLaxZyArQTOPj5LXecR+RagfPSU5Kw1qP+jkWeNlrq+eJZyY2oS68SU1Z/7/myXM4lo9716laOFAVStCQ==
 
+prop-types@^15.6.2:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 punycode@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
@@ -1017,6 +1056,11 @@ react-dom@18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-is@^16.13.1:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
 react-signature-canvas@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-signature-canvas/-/react-signature-canvas-1.0.6.tgz#095a8c2341cb7ba0b23ddd167955147b062c91ee"
@@ -1038,6 +1082,15 @@ react@18.2.0:
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
   dependencies:
     loose-envify "^1.1.0"
+
+react@^16.10.2:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 requires-port@^1.0.0:
   version "1.0.0"

@@ -52,11 +52,11 @@ const add = () => {
 
 	return (
 		<div>
-			<button onClick={setTime} class="click">
+			<button onClick={setTime} className="click">
 				{" "}
 				click{" "}
 			</button>
-			<span class="time">{viewData.time}</span>
+			<span className="time">{viewData.time}</span>
 		</div>
 	);
 }
