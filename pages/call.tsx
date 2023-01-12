@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Peer from 'skyway-js'
-const peer = new Peer({ key: "b160e98d-c322-4a0a-83df-b5c4e86c8891" })
 
 export default function Home() {
   let localStream: MediaStream;
+  const [callFlag , setCallFlag] = useState(false);
   const peer = new Peer({
     key: "b160e98d-c322-4a0a-83df-b5c4e86c8891",
+    // key: process.env.SKYWAY_KEY,
     debug: 3
   });
   peer.on('open', () => {
@@ -25,21 +26,23 @@ export default function Home() {
   const setEventListener = mediaConnection => {
     console.log("mediaConnection", mediaConnection)
     // ここの.onメソッドが発火していない
-    mediaConnection.on('stream', stream => {
+    mediaConnection.on('stream', async stream => {
       console.log("stream", stream)
       // video要素にカメラ映像をセットして再生
       const videoElm = document.getElementById('their-video')
       videoElm!.srcObject = stream;
-      videoElm!.play();
+      await videoElm!.play();
     });
   }
   const makeCall = () => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-      .then(stream => {
+      .then(async stream => {
+        setCallFlag(true);
         // 成功時にvideo要素にカメラ映像をセットし、再生
         const videoElm = document.getElementById('my-video');
         videoElm!.srcObject = stream;
-        videoElm!.play();
+        await videoElm!.play();
+        console.log("発信");
         // 着信時に相手にカメラ映像を返せるように、グローバル変数に保存しておく
         localStream = stream;
       }).catch(error => {
@@ -51,19 +54,20 @@ export default function Home() {
   useEffect(() => {
     // 発信をしたときに、ここを発火させる
     makeCall();
-  }, [])
+    console.log("useEffect")
+  }, [callFlag])
   return (
     <div>
       <p>自分のID(相手にわたすID)</p>
       <p id="my-id"></p>
-      <video id="my-video" width="400px" autoplay muted playsinline></video>
+      <video id="my-video" width="400px" ></video>
       <input id="their-id"></input>
       <button id="make-call" onClick={() => {
         console.log('||||')
         theirCall();
       }}>発信</button>
       <p>相手の映像</p>
-      <video id="their-video" width="400px" autoplay muted playsinline></video>
+      <video id="their-video" width="400px"></video>
     </div>
   )
 }
