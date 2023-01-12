@@ -17,31 +17,34 @@ export default function Home() {
     setEventListener(mediaConnection);
   });
   const theirCall = () => {
-      const theirID = document.getElementById('their-id').value;
+    if(!document) return
+      const theirID = document.getElementById('their-id');
       // console.log("ehiohfwb87129871973971209372109e", theirID)
-      const mediaConnection = peer.call(theirID, localStream);
+      const Id = theirID as any
+      console.log(Id)
+      const mediaConnection = peer.call(Id.value, localStream);
       setEventListener(mediaConnection);
   }
   // イベントリスナを設置する関数
-  const setEventListener = mediaConnection => {
+  const setEventListener = (mediaConnection: any) => {
     console.log("mediaConnection", mediaConnection)
     // ここの.onメソッドが発火していない
-    mediaConnection.on('stream', async stream => {
+    mediaConnection.on('stream', async (stream: any) => {
       console.log("stream", stream)
       // video要素にカメラ映像をセットして再生
-      const videoElm = document.getElementById('their-video')
+      const videoElm: any = document.getElementById('their-video')
       videoElm!.srcObject = stream;
       await videoElm!.play();
     });
   }
   const makeCall = () => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-      .then(async stream => {
+      .then(async (stream:any) => {
         setCallFlag(true);
         // 成功時にvideo要素にカメラ映像をセットし、再生
-        const videoElm = document.getElementById('my-video');
+        const videoElm: any = document.getElementById('my-video');
         videoElm!.srcObject = stream;
-        await videoElm!.play();
+        await videoElm!.play() as HTMLElement;
         console.log("発信");
         // 着信時に相手にカメラ映像を返せるように、グローバル変数に保存しておく
         localStream = stream;
